@@ -19,7 +19,7 @@ def progressbar():
 engine=pyttsx3.init('sapi5') #SAPI5 IS THE WINDOWS API FOR IN-BUILT VOICES OF WINDOWS
 voices=engine.getProperty('voices')
 
-engine.setProperty('voice',voices[2].id)
+engine.setProperty('voice',voices[0].id)
 
 def speak(text):
 	engine.say(text)

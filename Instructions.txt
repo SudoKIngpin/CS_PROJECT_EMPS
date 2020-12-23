@@ -1,0 +1,8 @@
+[1] . Open command prompt  in this folder and type the following command:
+
+Command='pip3 install -r requirements.txt'
+
+or 
+
+[2].  If you don't want to do above steps just execute automoduleinstaller.py
+with python3 interpreter.
