@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 # import mysql.connector as ms
+import subprocess
 from termcolor import colored,cprint
 from colorama import init
 import pyfiglet 
@@ -9,6 +10,7 @@ from tqdm import tqdm,trange
 from time import sleep
 from filereader import freader
 from prettytable import PrettyTable
+from covidinfo import coronainfo
 
 x=PrettyTable()
 init() #WINDOWS PLATFORM FOR PRINIRING COLOrs on cmd/powershell prompt!
@@ -28,7 +30,7 @@ def menu():
 	  print()
 	  cprint(colored('[2] Enter 2 to use File Reader                  ','magenta','on_white'))
 	  print()
-	  cprint(colored('[3] Enter 3 to use Assistant                  ','grey','on_green'))
+	  cprint(colored('[3] Enter 3 to use Covid Notification System            ','grey','on_green'))
 	  print()
 
 
@@ -138,6 +140,20 @@ if choice==1:
 
 elif choice==2:
 		freader()
+
+elif choice==3:
+	coronainfo()
+	print('''After typing y you can close this program and 
+		notification will be sent to you every 15 minute ''')
+
+	print()
+	ch3=input("If you want notification every 15 minute type[y],else[n]:")
+	if ch3=='y' or 'Y':
+		subprocess.Popen('pythonw.exe covidnotscr.py')
+	else:
+		cprint(colored('Bye User','white','on_red'))
+
+
 		
 else:
-		pass
+		cprint(colored('Error , Invalid option!','white','on_red'))
