@@ -7,11 +7,14 @@ from basic_op import addrec,delrec,searchrec,disprec,mailfun
 from modfun import modrec
 from tqdm import tqdm,trange
 from time import sleep
+from filereader import freader
 from prettytable import PrettyTable
+
 x=PrettyTable()
 init() #WINDOWS PLATFORM FOR PRINIRING COLOrs on cmd/powershell prompt!
 
 x.field_names=['EmpName','Gender','EmpId','Designation','Age','Emp_Mail','Salary']
+# ATTRIBUTES OF TABLE 
 
 
 def progressbar():
@@ -23,7 +26,7 @@ def progressbar():
 def menu():
 	  cprint(colored('[1] Enter 1 to use Employee Management System ','white','on_red'))
 	  print()
-	  cprint(colored('[2] Enter 2 to use Automation                 ','magenta','on_white'))
+	  cprint(colored('[2] Enter 2 to use File Reader                  ','magenta','on_white'))
 	  print()
 	  cprint(colored('[3] Enter 3 to use Assistant                  ','grey','on_green'))
 	  print()
@@ -35,7 +38,7 @@ print('=================================================')
 print(a)
 menu()
 
-choice=int(input(colored('Enter your choice:','yellow')))
+choice=int(input('Enter your choice:'))
 print()
 print('-------------------------------------------------')
 
@@ -77,7 +80,7 @@ if choice==1:
 		while ans=='y' or ans=='Y':
 
 			sqlmenu()
-			menu=int(input("Type your option : "))
+			menu=input("Type your option : ")
 
 			if menu==1:
 				addrec()
@@ -134,7 +137,7 @@ if choice==1:
 
 
 elif choice==2:
-		pass
+		freader()
 		
 else:
 		pass

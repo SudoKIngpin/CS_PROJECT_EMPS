@@ -1,5 +1,6 @@
 import mysql.connector as ms
 from colorama import init
+from time import sleep
 
 from termcolor import cprint,colored
 init()
@@ -44,7 +45,9 @@ def modrec():
                 r=cursor.fetchone()
                 if r!=None:
                         EmpName,Gender,EmpId,Designation,Age,Emp_Mail,Salary=r
+                       
                         if ch==1:
+
                                         field="Name" # For sending in mail
                                         New_Name=input('Enter new name :').upper()
                                         query='update Emplrec set EmpName="{}" where EmpId="{}"'.format(New_Name,EID)
@@ -53,7 +56,9 @@ def modrec():
                                         o=f'NAME UPDATED SUCCESSULLY TO : {New_Name} '
                                         cprint(colored(o,'white','on_red'))
 
+                        
                         elif ch==2:
+
                                         field="Gender"
                                         Gen=input("Enter new gender [M]/[F]:").upper()
                                         query='update Emplrec set Gender="{}" where EmpId="{}"'.format(Gen,EID)
@@ -63,6 +68,7 @@ def modrec():
                                         cprint(colored(o,'white','on_red'))
 
 
+                        
                         elif ch==3:
                                         field="Designation"
                                         Des=input("Enter New Designation:").upper()
@@ -139,4 +145,19 @@ def modrec():
 
 
                 else:
-                        cprint("INVALID EMPLOYEE ID , ID DOES NOT EXIST IN DATABASE",'white','on_red')
+                        cprint(colored("INVALID EMPLOYEE ID , ID DOES NOT EXIST IN DATABASE",'white','on_red'))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
