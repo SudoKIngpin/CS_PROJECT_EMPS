@@ -85,7 +85,7 @@ if choice==1:
 		while ans=='y' or ans=='Y':
 
 			sqlmenu()
-			menu=input("Type your option : ")
+			menu=int(input("Type your option : "))
 
 			if menu==1:
 				addrec()

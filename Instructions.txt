@@ -2,11 +2,9 @@
  open powershell/cmd  from the options and type the following command without quotes :
 
 
-[1] "python automoduleinstaller.py"
+[1] "pip3 install -r requirements.txt"
 
-            OR
-Just run the automodule installer script with python interpreter or with python launcher.
-
+        
 
 
 [2] Then open the modfun.py file and bsic_op.py in IDLE/IDE/TextEditor .

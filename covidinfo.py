@@ -37,7 +37,6 @@ def coronainfo():
 	di=t["Success"]
 	
 	info=f'''
-Country :{di['country']}
 Total Cases: {di['cases']}
 Cases Active: {di['active']}
 Cases Today: {di['todayCases']}
