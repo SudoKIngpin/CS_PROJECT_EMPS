@@ -157,13 +157,13 @@ if choice==1:
 			ans=input("Want to continue type[y], else[n] :")
 			
 
-
-
-
 elif choice==2:
 		freader()   # FILE READER 
 
 elif choice==3:
+	print()
+	cprint(colored('COVID__INFO__NOTIFIER__SYSTEM','white','on_red'))
+	print()
 	coronainfo()
 	print('''After typing y you can close this program and 
 		notification will be sent to you every 15 minutes ''')
@@ -172,7 +172,7 @@ elif choice==3:
 	ch3=input("If you want notification every 15 minute type[y],else[n]:")
 	if ch3=='y' or 'Y':
 		os.system('scheduler.bat')
-		cprint(colored('Notification Scheduled !!','white','on_red'))
+		cprint(colored('Notification Scheduled for every 15 minutes !','white','on_red'))
 	else:
 		cprint(colored('Bye User','white','on_red'))
 
@@ -181,3 +181,8 @@ else:
 		cprint(colored('Error , Invalid option!','white','on_red'))
 		nt.notify(title='Invalid ',message='Invalid option !',app_icon='error.ico',timeout=3)
 		beep(sound='error')
+
+
+
+
+		

@@ -39,20 +39,20 @@ def coronainfo():
 	info=f'''
 Total Cases: {di['cases']}
 Cases Active: {di['active']}
-Cases Today: {di['todayCases']}
 Total Deaths: {di['deaths']}
-Deaths Today: {di['todayDeaths']}
-Critical : {di['critical']}
 Recovered : {di['recovered']}
+Critical : {di['critical']}
 Tests Today: {di['totalTests']}
-	'''
+Cases Today: {di['todayCases']}
+Deaths Today: {di['todayDeaths']}
+'''
 
 	
 
 
-	notification.notify(title="Covid Info India",message=info,app_icon='update.ico',timeout=15,app_name="CovidStats")
+	notification.notify(title="Covid Info India",message=info,app_icon='updater.ico',timeout=15,app_name="CovidStats")
 	beep(sound='ready')
-# coronainfo()
+#coronainfo()
 				 
 
 

@@ -20,7 +20,7 @@ from beepy import beep #Notification sound
 init() #WNDOWS PLATFORM
 
 try:
-        mycon=ms.connect(host='localhost',user='root',passwd='Karishma@8122003',database='Emplmgs',autocommit=True) #,autocommit=True
+        mycon=ms.connect(host='localhost',user='root',passwd='Kali',database='Emplmgs',autocommit=True) #,autocommit=True
         cursor=mycon.cursor()
 
 except Exception as e:
