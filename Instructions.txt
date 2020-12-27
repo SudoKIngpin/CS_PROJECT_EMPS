@@ -1,8 +1,28 @@
-[1] . Open command prompt  in this folder and type the following command:
+ Open command prompt/powershell in this folder by holding shift + right click , click
+ open powershell/cmd  from the options and type the following command without quotes :
 
-Command='pip3 install -r requirements.txt'
 
-or 
+[1] "python automoduleinstaller.py"
 
-[2].  If you don't want to do above steps just execute automoduleinstaller.py
-with python3 interpreter.
+            OR
+Just run the automodule installer script with python interpreter or with python launcher.
+
+
+
+[2] Then open the modfun.py file and bsic_op.py in IDLE/IDE/TextEditor .
+
+In modfun.py  line number 13 configure/modify user and password as per your mysql.
+
+Similarly in basic_op.py line number 23 configure/modify user and password as per your mysql.
+
+
+[3]Thats it now are ready to use my program.
+
+
+[4]Just open command prompt/powershell  in this folder by holding shift + right click ,
+click open powershell/cmd  from the options and type the following command without quotes:
+
+'python  cs_project.py '
+
+
+[5] Do let me know how you find my program.

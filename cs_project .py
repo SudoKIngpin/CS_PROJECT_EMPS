@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 # import mysql.connector as ms
-import subprocess
+import os
 from termcolor import colored,cprint
 from colorama import init
 import pyfiglet 
@@ -11,6 +11,9 @@ from time import sleep
 from filereader import freader
 from prettytable import PrettyTable
 from covidinfo import coronainfo
+from plyer import notification as nt # Notification system
+from beepy import beep #Notification sound
+
 
 x=PrettyTable()
 init() #WINDOWS PLATFORM FOR PRINIRING COLOrs on cmd/powershell prompt!
@@ -100,11 +103,16 @@ if choice==1:
 				try:
 					L=disprec() #L WILL STORE NESTED LIST OF RECORDS 
 					for data in L:
-						x.add_row(data)
+						x.add_row(data) # It will throw error if no records ,it takes list
 					print(x)
+					nt.notify(title='Success',message='RECORDS FOUND',app_icon='gtick.ico',timeout=3)
+					beep(sound='ping')
 					x.clear_rows()
 				except Exception as e: #RUNTIME ERROR IF THERE ARE NO RECORDS
 					cprint(colored('ERROR!!','white','on_red'))
+					nt.notify(title='Database Empty',message='No records to display',app_icon='error.ico',timeout=3)
+					beep(sound='error')
+
 					print()# For  some gap b/w records and y/n input
 				
 			elif menu==5:
@@ -112,25 +120,39 @@ if choice==1:
 					L=searchrec() #L WILL STORE LIST OTHERWISE NONE
 					x.add_row(L)
 					print(x)
+					nt.notify(title='Success',message='RECORD FOUND',app_icon='gtick.ico',timeout=3)
+					beep(sound='ping')
 					x.clear_rows()
 				except Exception as e:
 					cprint(colored('ERROR!!','white','on_red'))
 					print()# For  some gap b/w records and y/n input
+					nt.notify(title='Failure',message='Error',app_icon='error.ico',timeout=3)
+					beep(sound='error')
+
 				
 			elif menu==6:
 				try:
 				 	mailfun()
+				 	
+
 				except Exception as e:
 					cprint(colored("MAIL NOT SENT , PLEASE CONNECT TO INTERNET!",'white','on_blue'))
-				
+					nt.notify(title='Failure',message='Please connect to Internet',app_icon='error.ico',timeout=3)
+					beep(sound="error")# Notifiication sound
 
 			elif menu==7:
 				cprint(colored('BYE USER !!','white','on_red'))
+				nt.notify(title='Exit',message='BYE USER',app_icon='redbell.ico',timeout=3)
+				beep(sound='success')
+
 				sleep(4)
 				exit()
 			else:
 				print('Invalid option !!')
 				print()# For  some gap b/w records and y/n input
+				nt.notify(title='Invalid ',message='Invalid option !',app_icon='error.ico',timeout=3)
+				beep(sound='error')
+
 				
 			ans=input("Want to continue type[y], else[n] :")
 			
@@ -139,21 +161,23 @@ if choice==1:
 
 
 elif choice==2:
-		freader()
+		freader()   # FILE READER 
 
 elif choice==3:
 	coronainfo()
 	print('''After typing y you can close this program and 
-		notification will be sent to you every 15 minute ''')
+		notification will be sent to you every 15 minutes ''')
 
 	print()
 	ch3=input("If you want notification every 15 minute type[y],else[n]:")
 	if ch3=='y' or 'Y':
-		subprocess.Popen('pythonw.exe covidnotscr.py')
+		os.system('scheduler.bat')
+		cprint(colored('Notification Scheduled !!','white','on_red'))
 	else:
 		cprint(colored('Bye User','white','on_red'))
-
 
 		
 else:
 		cprint(colored('Error , Invalid option!','white','on_red'))
+		nt.notify(title='Invalid ',message='Invalid option !',app_icon='error.ico',timeout=3)
+		beep(sound='error')

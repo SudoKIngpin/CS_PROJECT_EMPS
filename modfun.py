@@ -3,6 +3,11 @@ from colorama import init
 from time import sleep
 
 from termcolor import cprint,colored
+
+
+from plyer import notification as nt # Notification system
+from beepy import beep #Notification sound
+
 init()
 try:
         mycon=ms.connect(host='localhost',user='root',passwd='',database='Emplmgs',autocommit=True)   #,autocommit=True
@@ -55,6 +60,8 @@ def modrec():
                                         mycon.commit()
                                         o=f'NAME UPDATED SUCCESSULLY TO : {New_Name} '
                                         cprint(colored(o,'white','on_red'))
+                                        nt.notify(title='Updation Successful',message='NAME UPDATED SUCCESSULLY',app_icon='gtick.ico',timeout=3)
+                                        beep(sound='ping')
 
                         
                         elif ch==2:
@@ -66,6 +73,8 @@ def modrec():
                                         mycon.commit()
                                         o=f"GENDER UPDATED SUCCESSULLY TO: {Gen}"
                                         cprint(colored(o,'white','on_red'))
+                                        nt.notify(title='Updation Successful',message='GENDER UPDATED SUCCESSULLY',app_icon='gtick.ico',timeout=3)
+                                        beep(sound='ping')
 
 
                         
@@ -77,6 +86,8 @@ def modrec():
                                         mycon.commit()
                                         o=f"DESIGNATION UPDATED SUCCESSULLY TO : {Des}"
                                         cprint(colored(o,'white','on_red'))
+                                        nt.notify(title='Updation Successful',message='DESIGNATION UPDATED SUCCESSULLY',app_icon='gtick.ico',timeout=3)
+                                        beep(sound='ping')
 
 
 
@@ -89,6 +100,8 @@ def modrec():
                                         mycon.commit()
                                         o=f"AGE UPDATED SUCCESSULLY TO :{age}"
                                         cprint(colored(o,'white','on_red'))
+                                        nt.notify(title='Updation Successful',message='AGE UPDATED SUCCESSULLY',app_icon='gtick.ico',timeout=3)
+                                        beep(sound='ping')
 
 
 
@@ -101,6 +114,8 @@ def modrec():
                                         mycon.commit()
                                         o=f'MAIL ID UPDATED SUCCESSULLY TO:{mail_id}'
                                         cprint(colored(o,'white','on_red'))
+                                        nt.notify(title='Updation Successful',message='MAIL ID UPDATED SUCCESSULLY',app_icon='gtick.ico',timeout=3)
+                                        beep(sound='ping')
 
 
 
@@ -112,6 +127,8 @@ def modrec():
                                         mycon.commit()
                                         o=f"SALARY UPDATED SUCCESSULLY TO: {sal}"
                                         cprint(colored(o,'white','on_red'))
+                                        nt.notify(title='Updation Successful',message='SALARY UPDATED SUCCESSULLY',app_icon='gtick.ico',timeout=3)
+                                        beep(sound='ping')
 
 
                         elif ch==7:
@@ -123,6 +140,8 @@ def modrec():
                                 mycon.commit()
                                 o=f"SALARY HAS BEEN INCREASED BY {per}%"
                                 cprint(colored(o,'white','on_red'))
+                                nt.notify(title='Updation Successful',message='Salary Increased!',app_icon='gtick.ico',timeout=3)
+                                beep(sound='ping')
 
 
 
@@ -136,19 +155,22 @@ def modrec():
                                 mycon.commit()
                                 o=f"SALARY HAS BEEN DECREASED BY {per}%"
                                 cprint(colored(o,'white','on_red'))
+                                nt.notify(title='Updation Successful',message='Salary Decreased!',app_icon='gtick.ico',timeout=3)
+                                beep(sound='ping')
 
 
 
 
                         else:
                                 cprint(colored("INVALID OPTION!!",'green','on_white'))
+                                nt.notify(title='Error',message='Invalid option!',app_icon='error.ico',timeout=3)
+                                beep(sound='error')
 
 
                 else:
                         cprint(colored("INVALID EMPLOYEE ID , ID DOES NOT EXIST IN DATABASE",'white','on_red'))
-
-
-
+                        nt.notify(title='INVALID EMPLOYEE ID',message='ID DOES NOT EXIST IN DATABASE',app_icon='error.ico',timeout=3)
+                        beep(sound='error')
 
 
 

@@ -7,10 +7,15 @@
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 import smtplib
+
 from termcolor import cprint,colored
 from colorama import init # WINDOWA PLATFORM
+
 import mysql.connector as ms# for line 15
 from time import sleep  # FOR LINE 19
+
+from plyer import notification as nt # Notification system
+from beepy import beep #Notification sound
 
 init() #WNDOWS PLATFORM
 
@@ -36,7 +41,9 @@ def addrec():
                         cursor.execute(add_query)
                         mycon.commit()
                         cprint(colored("RECORD ADDED SUCCESSULLY !",'white','on_red'))
-                        #MAIL CONFIRMATION SYSTEM 
+                        nt.notify(title='Success',message='RECORDS ADDED SUCCESSULLY',app_icon='gtick.ico',timeout=3)
+                        beep(sound='ping')  
+                        #Notification SYSTEM 
 
 def delrec():
                         EmpId=input("Enter unique 5 Digit Employee ID:").upper()
@@ -52,10 +59,13 @@ def delrec():
                                 cursor.execute(del_query)
                                 mycon.commit()
                                 cprint(colored("RECORD DELETED SUCCESSULLY !",'white','on_red'))
+                                nt.notify(title='Success',message='Record deleted successfully',app_icon='gtick.ico',timeout=3)
+                                beep(sound='ping')  
 
                         else:
                                 cprint(colored("INVALID EMPID , ID DOES NOT EXIST IN DATABASE !",'green','on_white'))
-
+                                nt.notify(title='Error!',message='EMPID DOES NOT EXIST IN DATABASE !',app_icon='error.ico',timeout=3)
+                                beep(sound='error')  
 
 
 def searchrec():
@@ -120,8 +130,13 @@ def mailfun():
                         o=f"MAIL SENT SUCCESSFULLY TO {EmpName} whose EmpID is: {EmpId}"
                         cprint(colored(o,'white','on_red'))
                         server.quit()
-                
+                        nt.notify(title='Success',message='Mail sent successfully',app_icon='gtick.ico',timeout=3)
+                        beep(sound="ping") # Notification sound
+
 
 
         else:
                 cprint(colored("INVALID EmpId !!",'white','on_green'))
+                nt.notify(title='INVALID ID',message='Id does not exist in database!',app_icon='error.ico',timeout=3)
+                beep(sound="error")# Notifiication sound
+

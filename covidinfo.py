@@ -7,9 +7,6 @@ from time import sleep
 from beepy import beep
 
 
-
-
-
 def coronainfo():
 	init()  # Windows color formatting
 	try:
@@ -54,7 +51,7 @@ Tests Today: {di['totalTests']}
 	
 
 
-	notification.notify(title="Covid Info India",message=info,app_icon='redbell.ico',timeout=40,app_name="CovidStats")
+	notification.notify(title="Covid Info India",message=info,app_icon='update.ico',timeout=15,app_name="CovidStats")
 	beep(sound='ready')
 # coronainfo()
 				 
